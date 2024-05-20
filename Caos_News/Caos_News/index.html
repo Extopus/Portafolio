@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONT AWESOME (logos)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- conexion 'style' CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+    crossorigin="anonymous">
+
+    <title>Caos News</title>
+</head>
+
+<body>
+    <!-------------------------------------Menú superior (navbar)------------------------------------->
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid"><!-- se adapta a todas las pantallas -->
+          <a class="navbar-brand" href="#"> <img class="logo" src="./assets/img/logo.png" alt=""></a> 
+
+          <!-- Obtiene el div donde esta el login MEDIANTE EL ID-->
+          <button class="boton-inicio-sesion" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar sesión</button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown"><!-- el navbar cuando el dispositivo es pequeño se contrae -->
+            <ul class="navbar-nav">
+              <!-- busca el ID y te lleva donde estan las noticias "Nacional","Internacional" y "Deportes"-->
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./index.html#Nacional">Nacional</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html#Internacional">Internacional</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html#Deportes">Deportes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!----------------------------------------Formulario de Inicio de Sesion---------------------------------------->
+    <div id="id01" class="modal">
+      <!-- action: es la url donde va la información del formulario -->
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+          <!-- boton cancelar cierra los formularios-->
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <!-- imágen -->
+          <img src="./assets/img/img_avatar.jpg" alt="Avatar" class="avatar">
+        </div>
+
+        
+        <div class="container">
+          <!-- EMAIL -->
+          <label for="uname"><b>Correo</b></label>
+          <input type="email" placeholder="Correo electrónico*" name="uname" required>
+
+          <!-- CONTRASEÑA -->
+          <label for="psw"><b>Contraseña</b></label>
+          <input type="password" placeholder="Contraseña*" name="psw" required>
+          
+          <!-- BOTÓN INICIO DE SESIÓN -->
+          <button type="submit">Iniciar sesión</button>
+
+          <!-- LINK DE RECORDAR AL USUARIO -->
+          <label><input type="checkbox" checked="checked" name="remember"> Recuerdame</label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <!-- BOTÓN CANCELAR -->
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+          <!-- BOTÓN DE REGISTRARSE -->
+          <span class="psw" onclick="document.getElementById('id02').style.display='block'"> <a href="#" onclick="document.getElementById('id01').style.display='none'">Registrarme</a></span>
+        </div>
+      </form>
+    </div>
+
+    <!-------------------------------------Formulario para Registrar Usuario---------------------------------->
+    <div id="id02" class="modal">
+      <!-- action: es la url donde va la información del formulario -->
+      <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="imgcontainer">
+            <!-- boton cancelar cierra los formularios-->
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <!-- imagen -->
+            <img src="./assets/img/img_avatar.jpg" alt="Avatar" class="avatar">
+          </div>
+
+          
+          <div class="container">
+            <!-- EMAIL -->
+            <label for="uname"><b>Correo</b></label>
+            <input type="email" placeholder="Correo electrónico*" name="uname" required>
+
+            <!-- CONFIRMAR EMAIL -->
+            <label for="uname"><b>Repetir correo</b></label>
+            <input type="email" placeholder="Correo electrónico*" name="uname" required>
+            
+            <!-- CONTRASEÑA -->
+            <label for="psw"><b>Contraseña</b></label>
+            <input type="password" placeholder="Contraseña*" name="psw" required>
+            
+            <!-- BOTON PARA REGISTRARSE -->
+            <button type="submit">Registrarme</button>
+          </div>
+
+          <div class="container" style="background-color:#f1f1f1; display: flex; justify-content: center; align-items: center;">
+            <!-- BOTÓN CANCELAR -->
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancelar</button>
+          </div>        
+      </form>
+    </div>
+    
+    <!-------------------------------------Carrusel de noticias importantes------------------------------------->
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <!--SLIDE 1-->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="slide-content">
+            <a href="./articulo_noticia.html"><img src="./assets/img/molusco.png" class="d-block w-70" alt="...">  </a>
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="titulo-carrusel"> “Cuando lo vi, me llamó la atención”: hombre que halló choro gigante revela qué hizo con el impresionante molusco </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="carousel-item">
+        <div class="slide-content">
+          <img src="./assets/img/yuhui.png" class="d-block w-70" alt="..."> 
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="titulo-carrusel">Canal 13 tendrá que pagar una millonaria multa por caída de Yuhui Lee en el matinal</h2>         
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="carousel-item">
+          <div class="slide-content">
+            <img src="./assets/img/glup.png" class="d-block w-70" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="titulo-carrusel">“Se va a iniciar una causa”: Fiscalía anuncia que investigara denuncia por acoso contra vocalista de Glup!</h2>
+          </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FLECHAS PARA VER LOS SLIDES -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+ 
+  <!-------------------------------------Noticias------------------------------------->
+  <div  class="container text-center noticias">
+    <!-- Noticias Nacionales -->
+    <div id="Nacional" class="row align-items-start p-5">
+      <h3 class="subtitulo"  style="text-align: center;  font-size: xx-large; font-weight: 800 ;" >Nacional</h3>
+      <!-- Noticia 1 -->
+      <div class="col">
+        <a href="./index.html"><img class="foto" src="./assets/img/carabinero.jpg" alt=""></a>
+          <figcaption > <b>Familia de carabinero asesinado a Yolvi González: "No tiene idea lo que se le viene"</b></figcaption>
+      </div>
+      <!-- Noticia 2 -->
+      <div class="col col-m">
+        <a href="./index.html"><img class="foto" src="https://www.lacuarta.com/resizer/hyfqujQGbBPhWmsi8v9LAvj0YvI=/640x360/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/QEMQ4M3XGFCTTC3IZ55RYBQOYI.jpg" alt=""></a>
+    
+          <figcaption> <b>“Ese hueón es perfecto”: Paula Pavic quedó encantada con un joven y reconocido deportista</b></figcaption>
+      </div>
+      <!-- Noticia 3 -->
+      <div class="col">
+        <a href="./index.html"><img class="foto" src="https://www.lacuarta.com/resizer/PaYTzdtLI1QAZ7q6KL1jP0-85jI=/640x360/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/BP6W2HEXIZDGNKTQENMBMANWFE.jpg" alt=""></a>
+          <figcaption> <b>“Metiéndonos en problemas…”: el palo de Fabrizio Copano tras la querella de Pablo Herrera por parodia en El Antídoto</b></figcaption>
+      </div> 
+    </div>
+
+    <!-- Noticias Internacionales -->
+    <div id="Internacional" class="row align-items-start p-5">
+      <h3 class="subtitulo" style="text-align: center;  font-size: xx-large; font-weight: 800 " >Internacional</h3>
+      <!-- Noticia 1 -->
+      <div class="col">
+        <a href="./index.html"><img class="foto" src="https://www.latercera.com/resizer/sOYXqftw0brwMoEMpXaL2RJi3V0=/400x267/smart/filters:quality(70):format(webp)/cloudfront-us-east-1.images.arcpublishing.com/copesa/V3FZ6AOO5ZHE3CTEUQRNGP4RXQ.jpg" alt="">
+        </a>
+          <figcaption> <b>El “Mad Max” de Ucrania rastrea pantanos y campos minados en busca de proyectiles</b> </figcaption>
+      </div>
+
+      <!-- Noticia 2 -->
+      <div class="col col-m">
+        <a href="./index.html"><img class="foto" src="https://www.latercera.com/resizer/itXWEsZECMVYu9GSR9v5eaQEdiw=/400x267/smart/filters:quality(70):format(webp)/cloudfront-us-east-1.images.arcpublishing.com/copesa/6OE5ULBYERC3DHBOHREKUU6NMI.jpg" alt="">
+        </a>
+          <figcaption > <b>La cruzada de las autoridades francesas contra migrantes e indigentes en París de cara a los JJ.OO.</b> </figcaption>
+      </div>
+      <!-- Noticia 3 -->
+      <div class="col">
+        <a href="./index.html"><img class="foto" src="https://www.latercera.com/resizer/O7oEI8oxYmi_En6w667xaHirU0k=/400x267/smart/filters:quality(70):format(webp)/cloudfront-us-east-1.images.arcpublishing.com/copesa/F2BRWMOZ7JFZOFFGP64UMJX3DQ.jpg" alt="">
+        </a>
+          <figcaption > <b>La OTAN cumple 75 años en medio de expansión de miembros y la amenaza del enemigo de siempre</b> </figcaption>
+      </div>
+    </div>
+    <!-- Noticias de Deportes -->
+    <div id="Deportes"  class="row align-items-start p-5">
+      <h3 class="subtitulo" style="text-align: center;  font-size: xx-large; font-weight: 800; " >Deportes</h3>
+      <!-- Noticia 1 -->
+      <div class="col">
+        <a href="./index.html"><img class="foto" src="https://www.lacuarta.com/resizer/uTXKBVHie26SWgv_jDb5llZrDWs=/360x180/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/CWZTJF7MGZFDXLNVDC2XGEWPOU.jpg" alt=""></a>
+          <figcaption > <b>Revelan que importante equipo europeo anda tras los pasos de Alexis Sánchez: salida del Inter de Milán sería inminente</b></figcaption>
+      </div>
+      <!-- Noticia 2 -->
+      <div class="col col-m">
+        <a href="./index.html"><img class="foto" src="https://www.lacuarta.com/resizer/tUvSJGffFaqzdhDoh1YFS8oe5r0=/0x197:2000x1197/360x180/cloudfront-us-east-1.images.arcpublishing.com/copesa/KTEVBGHKX5BARAAFQNMJ6CW5TY.jpg" alt="">
+        </a>
+          <figcaption > <b>“Nunca me traicionó, siempre me trató bien...”: exesposa de Kaká reveló impensada razón de separación</b></figcaption>
+      </div>
+      <!-- Noticia 3 -->
+      <div class="col">
+        <a href="./index.html"><img class="foto" src="https://www.lacuarta.com/resizer/-_X-JIWFRsFd0mMLIaCcNrjq_1o=/360x180/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/IUDSVZ34SZEN7K437NVLTXWLCM.jpg" alt="">
+        </a>
+          <figcaption > <b>Cuánto vale y dónde comprar la camiseta que el FC Barcelona hizo con Karol G</b></figcaption>
+      </div>      
+    </div>
+    </div>
+  </div>
+
+  <!-------------------------------------Formulario de Contacto-------------------------------------->
+
+  <div class="container-form container" >
+    <!-- cuando el dispositivo es pequeño, el texto "Contáctanos" arriba y el formulario abajo -->
+    <div class="row">
+      <!-- TEXTO -->
+      <div class="col-lg-4">
+        <div class="info-form col-sm-12">
+            <h2>Contáctanos</h2>
+            <h6>En Caos News, nos apasiona proporcionarte las últimas noticias y análisis sobre los temas que más te importan.</h6>
+            <h6>Queremos asegurarnos de que tu voz sea escuchada y de que tus preguntas sean respondidas.</h6>
+            <h6>¿Tienes algún comentario o sugerencia sobre una historia que hemos publicado recientemente?</h6>
+            <h6>No dudes en ponerte en contacto con nosotros a través del formulario de contacto a continuación.</h6>
+            <br>
+            <!-- ICONOS (telefono, email y ubicación) -->
+            <a href="#"><i class="fa fa-phone"></i> +56 9 12345678</a>
+            <a href="#"><i class="fa fa-envelope"></i> caosnews@gmail.com</a>
+            <a href="#"><i class="fa fa-map-marked"></i> Puerto Montt, Chile</a>
+        </div>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="col-sm-8 ">
+        <form id="miFormulario" action="./index.html" autocomplete="off">
+            <!--NOMBRE -->
+            <input type="text" name="nombre" placeholder="Nombre" class="campo">
+            <!--EMAIL -->
+            <input type="email" name="email" placeholder="Correo electrónico" class="campo">
+            <!--MENSAJE -->
+            <textarea name="mensaje" placeholder="Tu Mensaje..."></textarea>
+            <!--BOTÓN ENVIAR MENSAJES -->
+            <input type="submit" name="enviar" value="Enviar Mensaje" class="btn-enviar">
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-------------------------------------Mensaje de confirmacion de mensaje------------------------------------->
+  <div id="id03" class="modal">
+    <!-- Al presionar el botón de enviar mensaje con todos los campos rellenos, aparece este mensaje -->
+    <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+        <h1>Mensaje enviado correctamente 👌</h1>
+    </form>
+  </div>
+ 
+  <!-------------------------------------Pie de página (FOOTER)------------------------------------->
+  <div class="container-fluid text-center text-white derechos ">
+    <h6>¿Quiénes Somos? 
+      |
+      Declaración de intereses
+      |
+      Canal de Denuncias
+      |
+      Contacto Comercial
+      |
+      Contacto
+      |
+      Términos y Condiciones
+      |
+      Política de Privacidad
+      |
+      Código de Ética
+      |
+      Tarifas Publicidad Electoral</h6>
+
+    <h6>© Copyright 2024 - Todos los derechos ultra mega súper recontra reservados a las noticias.</h6>
+  </div>
+
+  <!-------------------------------------Script para enviar un mensaje de confirmacion del formulario------------------------------------->
+  <script>
+    document.getElementById('miFormulario').onsubmit = function(event) {
+      // Previene el envío del formulario por defecto
+      event.preventDefault();
+    
+      // Verifica si todos los campos están completos
+      var nombre = document.getElementsByName('nombre')[0].value;
+      var email = document.getElementsByName('email')[0].value;
+      var mensaje = document.getElementsByName('mensaje')[0].value;
+    
+      if (nombre && email && mensaje) {
+        // Si todos los campos están completos, muestra la ventana y envía el formulario
+        document.getElementById("id03").style.display='block';  
+      } else {
+        // Si algún campo está vacío, muestra un mensaje de error o realiza otra acción
+        alert('Por favor, completa todos los campos antes de enviar.');
+      }
+    };
+  </script>
+
+  <!---------------------------------------Boostrap JS--------------------------------------->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+.logo{
+    width: 120px;
+    margin-right: 10px;
+}
+body{
+    background-color:#383535;
+    color: #ffffff;
+}
+.navbar{
+
+    background-color:#ebe5e5;
+}
+.nav-link{
+    color: rgb(0, 0, 0);
+}
+.imagen{
+    display: flex;
+    margin: 15px;
+    width: 300px;
+    border-radius: 25px;
+    
+}
+.container{
+    margin-top: 50px;
+    background-color:rgb(33, 31, 31);
+    border-radius: 10px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.9);
+    
+}
+.titulo{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.texto{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.programas {
+    width: 100px;
+    margin: 0 50px; 
+    max-width: 100%; 
+    height: auto;
+  }
+
+.contacto {
+    font-size: 3rem;
+    margin: 0 35px; 
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+}
+
+.text-center {
+    text-align: center;
+  }
+  
+.icono-con-texto {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+  }
+  
+.icono-con-texto p {
+    margin: 5px 0 0; 
+    font-size: 14px; 
+  }
+
+.titulo-carrusel{
+    color: black;
+    font-weight:700;
+}
+.derechos{
+    margin-top: 50px;
+
+    align-content: center;
+
+    height: 200px;
+    
+  }
+
+
+
